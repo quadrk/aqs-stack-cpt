@@ -1,0 +1,540 @@
+/**
+ * Глобальные стили приложения
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  /* Основные цвета */
+  --primary-50: #ccddf0;
+  --primary-100: #a3c2e3;
+  --primary-200: #7aa7d6;
+  --primary-300: #518cc9;
+  --primary-400: #3971bd;
+  --primary-500: #2156b0;
+  --primary-600: #1b499d;
+  --primary-700: #143c8a;
+  --primary-800: #0e2f77;
+  --primary-900: #082364;
+
+  /* Вторичные цвета */
+  --secondary-50: #cfe7d1;
+  --secondary-100: #a0d0a3;
+  --secondary-200: #71b976;
+  --secondary-300: #52a259;
+  --secondary-400: #438b4a;
+  --secondary-500: #34743b;
+  --secondary-600: #265d2c;
+  --secondary-700: #17461d;
+  --secondary-800: #0f2f13;
+  --secondary-900: #061809;
+
+  /* Серые оттенки */
+  --gray-50: #e2e2e2;
+  --gray-100: #d2d2d2;
+  --gray-200: #c2c2c2;
+  --gray-300: #b2b2b2;
+  --gray-400: #a2a2a2;
+  --gray-500: #929292;
+  --gray-600: #6b6b6b;
+  --gray-700: #5b5b5b;
+  --gray-800: #323232;
+  --gray-900: #121212;
+
+  /* Цвета статуса */
+  --error-500: #d91616;
+  --warning-500: #d99900;
+  --info-500: #0078cc;
+  --success-500: #1d8845;
+
+  /* Фон и текст */
+  --background-default: #121212;
+  --background-paper: #1e1e1e;
+  --background-dark: #181818;
+
+  --text-primary: #e0e0e0;
+  --text-secondary: #b0b0b0;
+  --text-disabled: #707070;
+  --text-hint: #909090;
+
+  --divider: rgba(255, 255, 255, 0.12);
+
+  /* Тени */
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.25);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(255, 255, 255, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(255, 255, 255, 0.05);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(255, 255, 255, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(255, 255, 255, 0.05);
+
+  /* Скругления */
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-xxl: 24px;
+
+  /* Отступы */
+  --spacing-xxs: 0.25rem;
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 0.75rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-xxl: 3rem;
+
+  /* Переходы */
+  --transition-fast: 100ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-standard: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Размеры контейнеров */
+  --container-sm: 640px;
+  --container-md: 768px;
+  --container-lg: 1024px;
+  --container-xl: 1280px;
+  --container-xxl: 1536px;
+
+  /* Настраиваемая ширина для основного контента */
+  --content-width: 70%;
+}
+
+/* Сброс стилей */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  height: 100%;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  line-height: 1.5;
+  color: var(--text-primary);
+  background-color: var(--background-default);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Основной контейнер */
+#root {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+
+/* Основные элементы */
+a {
+  color: var(--primary-300);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--primary-200);
+  text-decoration: underline;
+}
+
+button {
+  font-family: 'Inter', sans-serif;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: all var(--transition-standard);
+}
+
+input, textarea, select {
+  font-family: 'Inter', sans-serif;
+  outline: none;
+  transition: all var(--transition-standard);
+}
+
+/* Типографика */
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--text-primary);
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+}
+
+h4 {
+  font-size: 1.125rem;
+}
+
+h5 {
+  font-size: 1rem;
+}
+
+h6 {
+  font-size: 0.875rem;
+}
+
+p {
+  margin: 0 0 1rem;
+}
+
+/* Компоненты */
+.card {
+  background-color: var(--background-paper);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  transition: transform var(--transition-standard), box-shadow var(--transition-standard);
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-md);
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+}
+
+/* Сетка компонентов */
+.grid {
+  display: grid;
+  gap: var(--spacing-md);
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.gap-xxs {
+  gap: var(--spacing-xxs);
+}
+
+.gap-xs {
+  gap: var(--spacing-xs);
+}
+
+.gap-sm {
+  gap: var(--spacing-sm);
+}
+
+.gap-md {
+  gap: var(--spacing-md);
+}
+
+.gap-lg {
+  gap: var(--spacing-lg);
+}
+
+.gap-xl {
+  gap: var(--spacing-xl);
+}
+
+/* Утилиты для отступов */
+.mt-xxs {
+  margin-top: var(--spacing-xxs);
+}
+
+.mt-xs {
+  margin-top: var(--spacing-xs);
+}
+
+.mt-sm {
+  margin-top: var(--spacing-sm);
+}
+
+.mt-md {
+  margin-top: var(--spacing-md);
+}
+
+.mt-lg {
+  margin-top: var(--spacing-lg);
+}
+
+.mt-xl {
+  margin-top: var(--spacing-xl);
+}
+
+.ml-xxs {
+  margin-left: var(--spacing-xxs);
+}
+
+.ml-xs {
+  margin-left: var(--spacing-xs);
+}
+
+.ml-sm {
+  margin-left: var(--spacing-sm);
+}
+
+.ml-md {
+  margin-left: var(--spacing-md);
+}
+
+.ml-lg {
+  margin-left: var(--spacing-lg);
+}
+
+.ml-xl {
+  margin-left: var(--spacing-xl);
+}
+
+.mr-xxs {
+  margin-right: var(--spacing-xxs);
+}
+
+.mr-xs {
+  margin-right: var(--spacing-xs);
+}
+
+.mr-sm {
+  margin-right: var(--spacing-sm);
+}
+
+.mr-md {
+  margin-right: var(--spacing-md);
+}
+
+.mr-lg {
+  margin-right: var(--spacing-lg);
+}
+
+.mr-xl {
+  margin-right: var(--spacing-xl);
+}
+
+.mb-xxs {
+  margin-bottom: var(--spacing-xxs);
+}
+
+.mb-xs {
+  margin-bottom: var(--spacing-xs);
+}
+
+.mb-sm {
+  margin-bottom: var(--spacing-sm);
+}
+
+.mb-md {
+  margin-bottom: var(--spacing-md);
+}
+
+.mb-lg {
+  margin-bottom: var(--spacing-lg);
+}
+
+.mb-xl {
+  margin-bottom: var(--spacing-xl);
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.px-xxs {
+  padding-left: var(--spacing-xxs);
+  padding-right: var(--spacing-xxs);
+}
+
+.px-xs {
+  padding-left: var(--spacing-xs);
+  padding-right: var(--spacing-xs);
+}
+
+.px-sm {
+  padding-left: var(--spacing-sm);
+  padding-right: var(--spacing-sm);
+}
+
+.px-md {
+  padding-left: var(--spacing-md);
+  padding-right: var(--spacing-md);
+}
+
+.px-lg {
+  padding-left: var(--spacing-lg);
+  padding-right: var(--spacing-lg);
+}
+
+.px-xl {
+  padding-left: var(--spacing-xl);
+  padding-right: var(--spacing-xl);
+}
+
+.py-xxs {
+  padding-top: var(--spacing-xxs);
+  padding-bottom: var(--spacing-xxs);
+}
+
+.py-xs {
+  padding-top: var(--spacing-xs);
+  padding-bottom: var(--spacing-xs);
+}
+
+.py-sm {
+  padding-top: var(--spacing-sm);
+  padding-bottom: var(--spacing-sm);
+}
+
+.py-md {
+  padding-top: var(--spacing-md);
+  padding-bottom: var(--spacing-md);
+}
+
+.py-lg {
+  padding-top: var(--spacing-lg);
+  padding-bottom: var(--spacing-lg);
+}
+
+.py-xl {
+  padding-top: var(--spacing-xl);
+  padding-bottom: var(--spacing-xl);
+}
+
+/* Текстовые утилиты */
+.text-sm {
+  font-size: 0.875rem;
+}
+
+.text-md {
+  font-size: 1rem;
+}
+
+.text-lg {
+  font-size: 1.125rem;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+}
+
+.text-primary {
+  color: var(--text-primary);
+}
+
+.text-secondary {
+  color: var(--text-secondary);
+}
+
+.text-disabled {
+  color: var(--text-disabled);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.font-regular {
+  font-weight: 400;
+}
+
+.font-medium {
+  font-weight: 500;
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+/* Скрытие элементов */
+.hidden {
+  display: none;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Media Queries */
+@media (max-width: 1280px) {
+  #root {
+    max-width: 100%;
+  }
+  
+  .container {
+    padding: 0 var(--spacing-md);
+  }
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+  
+  h1 {
+    font-size: 1.75rem;
+  }
+  
+  h2 {
+    font-size: 1.375rem;
+  }
+  
+  h3 {
+    font-size: 1.125rem;
+  }
+  
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .container {
+    padding: 0 var(--spacing-sm);
+  }
+}

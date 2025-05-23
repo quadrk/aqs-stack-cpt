@@ -1,0 +1,32 @@
+services:
+  db:
+    image: postgres:17
+    environment:
+      POSTGRES_DB: aqs
+      POSTGRES_USER: aqs
+      POSTGRES_PASSWORD: secret
+      POSTGRES_INITDB_ARGS: "--locale=C --lc-collate=C --lc-ctype=C"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+  api:
+    build: ./aqs-backend
+    env_file:
+      - ./aqs-backend/.env
+    depends_on:
+      - db
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
+
+  frontend:
+    build: ./aqs-frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - api
+    restart: unless-stopped
+
+volumes:
+  db_data:

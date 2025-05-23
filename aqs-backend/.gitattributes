@@ -1,0 +1,4 @@
+# все текстовые файлы в репо храним с LF
+* text eol=lf
+# Windows-скрипты PowerShell оставляем CRLF
+*.ps1 text eol=crlf
